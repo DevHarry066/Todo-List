@@ -47,3 +47,13 @@ exports.updateTodoById = async (req, res, next) => {
         res.status(404).json({ success: false });
     }
 }
+
+exports.deleteTodoById = async (req, res, next) => {
+    const id = req.params.id;
+    const todo = await Todo.findByIdAndDelete(id);
+    if (todo) {
+        res.status(200).json({ success: true, data: null });
+    } else {
+        res.status(404).json({ success: false });
+    }
+}
