@@ -32,3 +32,18 @@ exports.getTodoById = async (req, res, next) => {
         res.status(404).json({ success: false });
     }
 }
+
+exports.updateTodoById = async (req, res, next) => {
+    const id = req.params.id;
+    const newTodo = req.body;
+    const todo = await Todo.findByIdAndUpdate(id, newTodo, {
+        new: true,
+        runValidators: true,
+    });
+
+    if (todo) {
+        res.status(200).json({ success: true, data: todo });
+    } else {
+        res.status(404).json({ success: false });
+    }
+}
