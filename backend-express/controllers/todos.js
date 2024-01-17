@@ -21,3 +21,14 @@ exports.getTodos = async (req, res, next) => {
         res.status(404).json({ success: false });
     }
 }
+
+exports.getTodoById = async (req, res, next) => {
+    const id = req.params.id;
+    const todo = await Todo.findById(id);
+
+    if (todo) {
+        res.status(200).json({ success: true, data: todo });
+    } else {
+        res.status(404).json({ success: false });
+    }
+}
