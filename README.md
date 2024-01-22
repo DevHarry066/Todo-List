@@ -7,7 +7,8 @@ TodoList has functionality of
 ### Update Todo By Id
 ### Delete Todo from Database
 
-
+### User details
+User will have a signup and signin option with Authentication as Middleware with JWT Token
 ### Application/Software used: 
 ### Backend:
            NodeJS, Express, MongoDB, Mongoose, colors, dotenv, slugify, nodemon
